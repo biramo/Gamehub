@@ -1,4 +1,4 @@
-import {Routes,Route} from 'react-router-dom'
+import {Routes,Route, useLocation} from 'react-router-dom'
 import Home from "../pages/Home"
 import Login from "../pages/Login"
 import GameDetail from '../pages/GameDetail'
@@ -14,6 +14,8 @@ import Footer from '../components/Footer';
 
 
 export default function AppRouter() {
+    //Para saber lugar actual
+  const location = useLocation();
   const sinNavbar = ['/login', '/register']; // ← páginas sin Navbar
   const mostrarNavbar_footer = !sinNavbar.includes(location.pathname);
 

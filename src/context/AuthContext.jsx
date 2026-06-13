@@ -4,6 +4,8 @@ import { createContext, useContext, useEffect, useState } from "react";
 // Importamos la instancia de Firebase Auth configurada en firebase.js
 import { auth } from "../firebase/config";
 
+//Verificacion con google
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 // Importamos funciones de Firebase Authentication
 import {
   onAuthStateChanged,              // Escucha cambios de sesión
@@ -16,7 +18,6 @@ import {
 // Creamos un contexto global.
 // Aquí guardaremos información del usuario autenticado.
 export const AuthContext = createContext();
-
 
 // Componente Provider.
 // Va a envolver toda la aplicación.
@@ -91,16 +92,21 @@ export function AuthProvider({ children }) {
     // Firebase cierra la sesión actual.
     signOut(auth);
 
-
+  const loginWithGoogle = () => {
+  const provider = new GoogleAuthProvider();
+  return signInWithPopup(auth, provider);
+  };
 
   // Compartimos estos valores con toda la aplicación.
   return (
+    //Todo lo que devuelve useAuth()
     <AuthContext.Provider
       value={{
         user,       // usuario actual
         login,      // función login
         register,   // función registro
         logout,     // función logout
+        loginWithGoogle, //funcion login google
         loading     // estado de carga
       }}
     >

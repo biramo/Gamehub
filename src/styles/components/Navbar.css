@@ -1,5 +1,5 @@
 .navbar{
-    border: solid 1px rgb(167, 67, 67);
+    border: solid 1px var(--bd-red);
     background-color: black;
     color:white;
     padding: 1em;
@@ -35,30 +35,42 @@
 .search-container input {
   width: 100%;
   padding: 0.5rem 1rem;
-  border: 1px solid #ddd;
   border-radius: 25px;
   font-size: 1rem;
   min-width: 2rem;
+  background-color: var(--bg-orange);
+  color:black;
+}
+
+.search-container input:hover,
+.search-container input:focus {
+  outline: none;
+  
 }
 
 /* Carrito y perfil - se quedan a la derecha */
-.cart, .profile {
+.navbar-cart, .navbar-profile {
   cursor: pointer;
   padding: 0.5rem;
   transition: transform 0.2s;
 }
 
-.cart:hover, .profile:hover {
+.navbar-cart:hover, .navbar-profile:hover {
   transform: scale(1.05);
 }
 
-.cart span {
+.navbar-cart span {
   background-color: #ff6b35;
   color: white;
   border-radius: 50%;
   padding: 0 6px;
   margin-left: 5px;
   font-size: 0.8rem;
+}
+
+.navbar-profile{
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 
 @media(max-width:768px){

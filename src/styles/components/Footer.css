@@ -1,7 +1,7 @@
 .main-footer{
-    background-color: #1a1a1a;
+    background-color: var(--bg-gray);
     box-sizing: border-box;
-    border: 1px solid  #A74343;
+    border: 1px solid  var(--bd-red);
 }
 
 .footer-section{
