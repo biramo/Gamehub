@@ -54,6 +54,7 @@
   cursor: pointer;
   padding: 0.5rem;
   transition: transform 0.2s;
+  text-align: center;
 }
 
 .navbar-cart{
@@ -81,11 +82,13 @@
 
 @media(max-width:768px){
     .navbar nav ul{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap:10px;
-}
+  }
 .logo {
+  text-align: center;
+  grid-column: span 2;
   margin-right:0;
   font-size: 1.5rem;
   font-weight: bold;
@@ -93,6 +96,7 @@
 }
 
 .search-container {
+    grid-column: span 2;
     margin-right: 0;
     flex: 1; 
     display: flex;

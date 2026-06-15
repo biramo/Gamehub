@@ -1,7 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+
 :root{
     --bg-orange:#FF6B35;
     --purple:#5535CC;
     --bg-purple: #6a58d3;
     --bd-red:#A74343;
     --bg-gray:#1A1A1A;
+    --bg-light-gray:rgb(231, 229, 229);
+
+    --text-primary: #ffffff;
+    --text-secondary: #9ca3af;
+    --bg-dark: #0f0f0f;
+    --border-color: #303030;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --transition: 0.2s ease;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
 }   

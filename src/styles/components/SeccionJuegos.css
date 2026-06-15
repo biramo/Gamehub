@@ -1,0 +1,35 @@
+.section-juegos-clasificados{
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+    margin: 1em;
+    background-color: white;
+    box-shadow: 0 0 12px rgb(255,255, 255,1);
+    border-radius: 8px;
+
+}
+
+.section-juegos-clasificados h2{
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--bd-red);
+    font-family: 'Orbitron', monospace;
+}
+
+.container-game-cards{
+    margin: 1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    border-top: solid 20px var(--bg-gray);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 1em;
+    align-items: stretch;
+    background-color: var(--bg-light-gray);
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.15),   /* 1. Sombra gris/oscura suave para dar profundidad hacia abajo */
+        0 0 0 4px rgba(255, 255, 255, 0.8), /* 2. Un "borde" o resplandor blanco interno/externo */
+        0 8px 20px rgba(128, 128, 128, 0.2); /* 3. Una sombra gris más difuminada al fondo */
+}

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { sendPasswordResetEmail, updateProfile } from "firebase/auth";
 import { auth } from "../firebase/config";
 import GoogleIcon from "../assets/icons/GoogleIcon";
+import {getAuthErrorMessage} from '../services/authErrorHandler'
 import '../styles/pages/Login.css';
 
 export default function Login() {
@@ -24,7 +25,7 @@ export default function Login() {
       await loginWithGoogle();
       navigate('/');
     } catch (err) {
-      setError(err.message);
+      setError(getAuthErrorMessage(err));
     }
   };
 
@@ -39,13 +40,16 @@ export default function Login() {
           return;
         }
         const userCredential = await register(email, password);
-        await updateProfile(userCredential.user, { displayName: nombre });
+        if (auth.currentUser) {
+          await updateProfile(auth.currentUser, { displayName: nombre });
+        }
       } else {
         await login(email, password);
       }
       navigate('/');
     } catch (err) {
-      console.log(err.message);
+      setError(getAuthErrorMessage(err));
+
     }
   };
 

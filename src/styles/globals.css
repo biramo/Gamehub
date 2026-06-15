@@ -3,10 +3,20 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html,body{
     height: 100%;
+
+}
+
+body{
+    font-family: 'Share Tech Mono', monospace;
+}
+
+h1, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
 }
 
 #root{
@@ -16,4 +26,6 @@ html,body{
 }
 main{
     flex:1;
+    background-color: var(--bg-dark);
+
 }

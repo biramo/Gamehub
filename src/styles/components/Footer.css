@@ -1,6 +1,5 @@
 .main-footer{
     background-color: var(--bg-gray);
-    box-sizing: border-box;
     border: 1px solid  var(--bd-red);
 }
 
