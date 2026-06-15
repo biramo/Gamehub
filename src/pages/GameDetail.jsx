@@ -69,60 +69,60 @@ export default function GameDetail() {
   const imagenActual=screenshots[indiceImagen]?.image || juego.background_image;
 
     return (
-    <main className="main-game-detail">
-        <section className="game-detail">
-          <figure className="game-images">
-            <img 
-            src={imagenActual}
-            alt={`Imagen del juego ${juego.name}`}/>
-            {screenshots.length > 1 && (
-            <div className="nav-buttons">
-                <button className="image-previous" onClick={anterior}>‹ Anterior</button>
-                <button className="image-next" onClick={siguiente}>Siguiente ›</button>
+    <main className="main-detail-page">
+        <article className="detail-page">
+          <section className='section-detail-game'>
+            <figure className="game-images">
+              <img 
+              src={imagenActual}
+              alt={`Imagen del juego ${juego.name}`}/>
+              {screenshots.length > 1 && (
+              <div className="nav-buttons">
+                  <button className="image-previous" onClick={anterior} aria-label="Anterior">‹ Anterior</button>
+                  <button className="image-next" onClick={siguiente} aria-label="Siguiente" >Siguiente ›</button>
+              </div>
+              )}
+            </figure>
+            <div className="game-content">
+              <div className="game-title">
+                <h1>{juego.name}</h1>
+              </div>
+              <div className="rating">
+                <span>⭐ {juego.rating?.toFixed(1) || 'N/A'}</span>
+                {juego.metacritic &&(<span>Puntuacion {juego.metacritic}/100</span>)}
+              </div>
+              
+              <div className="game-meta">
+              <p><strong>Fecha de lanzamiento:</strong> {juego.released || 'No especificada'}</p>
+              <p><strong>Plataformas:</strong> {
+                juego.platforms?.map(p => p.platform.name).join(', ') || 'No especificadas'
+              }</p>
+              <p>{juego.tags?.map(tag=>tag.name).join(", ")}</p>
+              
+              {/* Géneros */}
+              <div className='game-genres'>
+                <strong>Géneros:</strong>
+                <ul>{juego.genres?.map(genre => (
+                  <li key={genre.id} className="genre-tag">{genre.name}</li>
+                ))}
+                </ul>
+              </div>
+              </div>
             </div>
-            )}
-          </figure>
-          <div className="game-content">
-            <div className="game-title">
-              <h3>{juego.name}</h3>
-            </div>
-            <div className="rating-price">
-              <span>⭐ {juego.rating?.toFixed(1) || 'N/A'}</span>
-              <span className="price">{juego.price ? `${juego.price} €` : 'Precio no disponible'}</span>
-              {juego.metacritic &&(<span>Puntuacion {juego.metacritic}/100</span>)}
-            </div>
-            
-            <div className="game-meta">
-            <p><strong>Fecha de lanzamiento:</strong> {juego.released || 'No especificada'}</p>
-            <p><strong>Plataformas:</strong> {
-              juego.platforms?.map(p => p.platform.name).join(', ') || 'No especificadas'
-            }</p>
-            <p>{juego.tags?.map(tag=>tag.name).join(", ")}</p>
-            
-            {/* Géneros */}
-            <div className='game-genres'>
-              <strong>Géneros:</strong>
-              {juego.genres?.map(genre => (
-                <span key={genre.id} className="genre-tag">{genre.name}</span>
-              ))}
-            </div>
-            
+          </section>      
             {/* Información adicional del producto */}
-            <div className="info-compra">
-              <h4>Información de compra</h4>
+            <section className="section-info-compra">
+              <h3>Información de compra</h3>
+              <p className="price">{juego.price ? `${juego.price} €` : 'Precio no disponible'}</p>
               <p>✅ Incluye licencia digital</p>
               <p>🎮 Compatible con {juego.platforms?.map(p => p.platform.name).join(', ')}</p>
               <p>📦 Entrega inmediata por email</p>
               <p>🔒 Garantía de devolución de 14 días</p>
-              <button className="btn-comprar">
-                Comprar
+              <button className="btn-comprar" aria-label="Añadir al carrito">
+                añadir al carrito
               </button>
-            </div>
-          </div>
-          </div>
-          
-          
-      </section>
+            </section>
+      </article>
    </main>
    );
 }
