@@ -2,9 +2,15 @@ import { useParams } from 'react-router-dom';
 import { getJuego } from '../services/rawgApi'
 import { useEffect, useState } from 'react';
 import Spiner from '../components/Spiner'
+import {useCart} from '../hooks/useCart'
+import {useAuth} from '../hooks/useAuth'
+import { useNavigate } from 'react-router-dom';
 import '../styles/pages/GameDetail.css'
 
 export default function GameDetail() {
+    const navigate=useNavigate();
+    const {user}=useAuth();
+    const { sumarProducto }=useCart();
     const { id } = useParams();
     const [screenshots, setScreenshots] = useState([]);  // ← Array de capturas
     const [indiceImagen, setIndiceImagen] = useState(0);
@@ -112,15 +118,21 @@ export default function GameDetail() {
           </section>      
             {/* Información adicional del producto */}
             <section className="section-info-compra">
-              <h3>Información de compra</h3>
-              <p className="price">{juego.price ? `${juego.price} €` : 'Precio no disponible'}</p>
-              <p>✅ Incluye licencia digital</p>
-              <p>🎮 Compatible con {juego.platforms?.map(p => p.platform.name).join(', ')}</p>
-              <p>📦 Entrega inmediata por email</p>
-              <p>🔒 Garantía de devolución de 14 días</p>
-              <button className="btn-comprar" aria-label="Añadir al carrito">
-                añadir al carrito
-              </button>
+              <div className='title-info-compra'>
+                 <h3>Información de compra</h3>
+                 <p className="price">{juego.price ? `${juego.price} €` : 'Precio no disponible'}</p>  
+              </div>
+              <div className='meta-info-compra'>
+                <p>✅ Incluye licencia digital</p>
+                <p>🎮 Compatible con {juego.platforms?.map(p => p.platform.name).join(', ')}</p>
+                <p>📦 Entrega inmediata por email</p>
+                <p>🔒 Garantía de devolución de 14 días</p>
+                <button 
+                onClick={user? ()=>sumarProducto(juego.id) : ()=>navigate('/login')}
+                className="btn-comprar" aria-label="Añadir al carrito">
+                  añadir al carrito
+                </button>
+              </div>
             </section>
       </article>
    </main>

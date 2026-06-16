@@ -158,6 +158,9 @@ export default function Login() {
           <button type="button" className="auth-button text-form" onClick={switchMode}>
             {isRegistering ? "Inicia sesión" : "Regístrate"}
           </button>
+          <button type="button" className="volver-home text-form" onClick={()=>navigate("/")}>
+            Seguir sin iniciar sesion
+          </button>
         </div>
       </form>
     </main>

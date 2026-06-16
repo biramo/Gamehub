@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom'
+import { useCart } from '../hooks/useCart';
 import '../styles/components/Navbar.css'
 
 export default function Navbar() {
+  const {totalUnidades}=useCart();
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate(); //importamos la funcion useNavigate
   const { user } = useAuth();
@@ -24,8 +26,9 @@ export default function Navbar() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </li>
-          {/*El 0 es temmporal falta por desarrollar el carrito*/} 
-          <li className="navbar-cart" onClick={()=>user? navigate('/cart'): navigate('/login')}>🛒 <span>0</span></li>
+          {user&&( 
+          <li className="navbar-cart" onClick={()=>navigate('/cart')}>🛒 <span>{totalUnidades}</span></li>
+          )}
           <li className="navbar-profile" onClick={()=>user? navigate('/profile'): navigate('/login')}>👤 {user? "Perfil": "Inicia sesion"}</li>
         </ul>
       </nav>

@@ -59,6 +59,7 @@
 
 .navbar-cart{
   font-size: 1.4rem;
+  grid-column: 1 / -1; 
 
 }
 
@@ -73,11 +74,13 @@
   padding: 2px 10px;
   margin-left: 5px;
   font-size: 1.1rem;
+
 }
 
 .navbar-profile{
   font-weight: 500;
   font-size: 1.2rem;
+  grid-column: 1 / -1; 
 }
 
 @media(max-width:768px){

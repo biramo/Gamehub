@@ -18,7 +18,7 @@
   border-radius: 8px;
   padding: 2rem 1.5rem;
   width: 100%;
-  max-width: 350px; 
+  max-width: 420px; 
   margin: 0 auto;
   box-sizing: border-box;
   box-shadow: 6px 10px 8px rgb(0,0,0,0.8);
@@ -37,11 +37,13 @@
     padding: 0.25em;
     color:var(--bd-red);
     font-weight: 500;
+    width: 280px;
 }
 
 .checkbox-container{
     display: flex;
     gap: 10px;
+    width: 100px;
 }
 
 .text-form{
@@ -99,16 +101,21 @@
 
 .container-auth{
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
-.auth-button{
+.auth-button,
+.volver-home
+{
     transition: color 0.3s ease;
+    cursor: pointer;
+
 }
 
-.auth-button:hover{
+.auth-button:hover,
+.volver-home:hover
+{
     color: var(--bg-orange);
-    cursor: pointer;
 
 
 }
