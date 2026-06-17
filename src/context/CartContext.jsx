@@ -46,6 +46,12 @@ export function CartProvider({ children }) {
   const eliminarProducto = (id) => {
   setCarrito(prev => prev.filter(p => p.id !== id));
   };
+
+  const setCantidadProducto=(id,cantidad)=>{
+    setCarrito(prev => 
+      prev.map(p =>p.id===id? {...p, cantidad:cantidad}:p)
+    )
+  }
   
   // Vaciar carrito completo
   const vaciarCarrito = () => setCarrito([]);
@@ -54,7 +60,7 @@ export function CartProvider({ children }) {
   const totalUnidades = carrito.reduce((acum, p) => acum + p.cantidad, 0);
 
   // Total precio
-  const totalPrecio = carrito.reduce((acum, p) => acum + ((p.cantidad ?? 0)* (p.precio ?? 0)), 0);
+  const totalPrecio = carrito.reduce((acum, p) => acum + ((p.cantidad ?? 0)* (p.price ?? 0)), 0);
   
   return (
     <CartContext.Provider value={{
@@ -63,6 +69,7 @@ export function CartProvider({ children }) {
       restarProducto,
       vaciarCarrito,
       eliminarProducto,
+      setCantidadProducto,
       totalUnidades,
       totalPrecio
     }}>

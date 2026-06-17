@@ -1,0 +1,100 @@
+.cart-page{
+    display: grid;
+    grid-template-columns: 3fr 2fr;  
+    background-color: var(--bg-light-gray);
+    padding: 0.5em 2em;
+    gap:50px;
+}
+
+/*[SECCION INFO DEL PEDIDO]*/
+.section-info-pedido{
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    border: solid 1px var(--bd-red);
+    box-shadow: 0 0 8px rgb(0,0,0,0.5);
+    max-width: 900px;
+    overflow: hidden;
+    background-color: black;
+
+    
+}
+
+.pedido-header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content : space-between;  
+    padding: 1.5em;  
+    gap:10px;
+    border-bottom: solid 3px var(--border-color);
+    background-color: var(--bg-gray-light);
+}
+
+.titles{
+    font-size: 1.8rem;
+    color: var(--bg-orange);
+
+}
+
+.pedido-header p{
+    color:white;
+    font-size: 1.2rem;
+}
+
+.btn-vaciar-carrito{
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: solid 1px var(--border-color);
+    background-color: var(--bd-red);
+    color:white;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.btn-vaciar-carrito:hover{
+    background-color: var(--bg-light-gray);
+    color:var(--bg-gray);
+
+}
+
+.pedidos-container{
+    padding: 0.4em 0.6em;
+}
+
+.ul-pedidos{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/*[SECCION RESUMEN DEL PEDIDO]*/
+
+.aside-resumen-compra{
+    border:solid 1px var(--border-color);
+    max-width: 500px;
+    width: 100%;
+    justify-self: end;
+    border-radius: 5px;
+}
+
+.header-resumen-compra{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content : space-between;  
+    padding: 1.5em;  
+    gap:10px;
+    border-bottom: solid 3px var(--border-color);
+    background-color: var(--bg-gray-light);
+
+    
+}
+
+.section-sugerencias{
+    grid-column: 1 / -1;
+}
+
+.section-comentarios-valoraciones{
+    grid-column: 1 / -1;
+}

@@ -1,8 +1,7 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import GameDetail from '../pages/GameDetail';
-import Register from '../pages/Register';
 import Cart from '../pages/Cart';
 import Favorites from '../pages/Favorites';
 import Profile from '../pages/Profile';
@@ -18,7 +17,7 @@ export default function AppRouter() {
     const location = useLocation();
     
     // ← páginas sin Navbar (usando constantes)
-    const sinNavbar = [ROUTES.LOGIN, ROUTES.REGISTER];
+    const sinNavbar = [ROUTES.LOGIN];
     const mostrarNavbar_footer = !sinNavbar.includes(location.pathname);
 
     return (
@@ -28,7 +27,6 @@ export default function AppRouter() {
                 {/* Rutas públicas */}
                 <Route path={ROUTES.HOME} element={<Home />} />
                 <Route path={ROUTES.LOGIN} element={<Login />} />
-                <Route path={ROUTES.REGISTER} element={<Register />} />
                 <Route path="/game/:id" element={<GameDetail />} />
 
                 {/* Rutas protegidas (requieren login) */}
@@ -43,10 +41,17 @@ export default function AppRouter() {
                         <Favorites />
                     </ProtectedRoute>
                 } />
-                
+                <Route
+                    path={ROUTES.PROFILE_TAB}
+                    element={
+                        <ProtectedRoute>
+                        <Profile />
+                        </ProtectedRoute>
+                }
+                />
                 <Route path={ROUTES.PROFILE} element={
                     <ProtectedRoute>
-                        <Profile />
+                        <Navigate to="/profile/perfil" replace />
                     </ProtectedRoute>
                 } />
                 

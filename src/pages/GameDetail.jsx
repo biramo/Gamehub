@@ -5,6 +5,8 @@ import Spiner from '../components/Spiner'
 import {useCart} from '../hooks/useCart'
 import {useAuth} from '../hooks/useAuth'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/pages/GameDetail.css'
 
 export default function GameDetail() {
@@ -31,6 +33,16 @@ export default function GameDetail() {
       }
     };
 
+     const handleAgregarCarrito = () => {
+      sumarProducto(juego);
+
+      toast.success('Producto añadido a la cesta', {
+        position: 'top-right',
+        autoClose: 3000,
+      });
+    };
+  
+
     useEffect(()=>{
       const cargarJuego= async ()=>{
         try{
@@ -54,7 +66,7 @@ export default function GameDetail() {
         setLoading(false);
       }
     }
-  
+   
     if(id){
       cargarJuego();
 
@@ -103,7 +115,7 @@ export default function GameDetail() {
               <p><strong>Plataformas:</strong> {
                 juego.platforms?.map(p => p.platform.name).join(', ') || 'No especificadas'
               }</p>
-              <p>{juego.tags?.map(tag=>tag.name).join(", ")}</p>
+              <p><strong>Etiquetas:</strong>{juego.tags?.map(tag=>tag.name).join(", ")}</p>
               
               {/* Géneros */}
               <div className='game-genres'>
@@ -128,8 +140,9 @@ export default function GameDetail() {
                 <p>📦 Entrega inmediata por email</p>
                 <p>🔒 Garantía de devolución de 14 días</p>
                 <button 
-                onClick={user? ()=>sumarProducto(juego.id) : ()=>navigate('/login')}
-                className="btn-comprar" aria-label="Añadir al carrito">
+                onClick={user? handleAgregarCarrito : ()=>navigate('/login')}
+                className="btn-comprar" 
+                aria-label="Añadir al carrito">
                   añadir al carrito
                 </button>
               </div>

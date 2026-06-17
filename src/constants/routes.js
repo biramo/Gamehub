@@ -7,4 +7,5 @@ export const ROUTES = {
   PROFILE: '/profile',
   ORDERS: '/orders',
   ADMIN: '/admin',
+  PROFILE_TAB: '/profile/:tab'
 };

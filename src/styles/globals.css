@@ -11,6 +11,12 @@ html,body{
 
 }
 
+button{
+    padding: 0.5em 0.8em;
+    border-radius: 8px;
+
+}
+
 body{
     font-family: 'Share Tech Mono', monospace;
 }

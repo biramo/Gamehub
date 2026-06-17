@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import '../styles/pages/Profile.css'
 
 export default function Profile() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("perfil");
-
+  const { tab } = useParams();
+  const activeTab = tab || "perfil";
+  
   const handleLogout = async () => {
     await logout();
     navigate('/');
@@ -26,16 +27,20 @@ export default function Profile() {
         
         <nav className="sidebar-nav">
           <button className={activeTab === "perfil" ? "nav-btn active" : "nav-btn"}
-              onClick={() => setActiveTab("perfil")}>
+              onClick={() => navigate("/profile/perfil")}>
               👤 Mi Perfil
             </button>
             <button className={activeTab === "config" ? "nav-btn active" : "nav-btn"}
-              onClick={() => setActiveTab("config")}>
+              onClick={() => navigate("/profile/config")}>
               ⚙️ Configuración
             </button>
             <button className={activeTab === "seguridad" ? "nav-btn active" : "nav-btn"}
-              onClick={() => setActiveTab("seguridad")}>
+              onClick={() => navigate("/profile/seguridad")}>
               🔒 Seguridad
+          </button>
+          <button className={activeTab === "pedidos" ? "nav-btn active" : "nav-btn"}
+              onClick={() => navigate("/profile/pedidos")}>
+              📦 Pedidos
           </button>
           <button className="logout-sidebar" onClick={handleLogout}>
             🚪 Cerrar Sesión
@@ -74,6 +79,13 @@ export default function Profile() {
           <div className="config-section">
             <h2>Preferencias</h2>
             {/* Opciones de configuración */}
+          </div>
+        )}
+
+        {activeTab==="pedidos"&&(
+          <div className="pedidos-section">
+            <h2>Pedidos</h2> 
+
           </div>
         )}
       </section>

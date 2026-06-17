@@ -52,7 +52,6 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding-left: 0.8em;
     font-size: 1.2rem;
 }
 
@@ -111,4 +110,23 @@
     box-shadow: 1px 3px 8px rgb(0,0,0,0.4);
     color:var(--bg-gray)
 
+}
+
+@media(max-width: 768px){
+    .detail-page{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .section-detail-game {
+        margin-left:0 ;
+        padding: 0.5em;
+    }   
+    .game-meta{
+        text-align: center;
+    }
+    .section-info-compra{
+        margin-right: 0;
+        padding: 1em;
+        
+    }
 }
