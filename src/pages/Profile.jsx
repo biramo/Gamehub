@@ -1,6 +1,9 @@
-import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate, useParams } from "react-router-dom";
+import { cargarPedidos } from "../services/orderService";
+import ProfilePedidos from "../components/ProfilePedidos";
+import ProfileConfig from "../components/ProfileConfig";
+import ProfileSecurity from "../components/ProfileSecurity";
 import '../styles/pages/Profile.css'
 
 export default function Profile() {
@@ -8,7 +11,8 @@ export default function Profile() {
   const navigate = useNavigate();
   const { tab } = useParams();
   const activeTab = tab || "perfil";
-  
+ 
+
   const handleLogout = async () => {
     await logout();
     navigate('/');
@@ -76,17 +80,15 @@ export default function Profile() {
         )}
         
         {activeTab === "config" && (
-          <div className="config-section">
-            <h2>Preferencias</h2>
-            {/* Opciones de configuración */}
-          </div>
+          <ProfileConfig/>
         )}
 
-        {activeTab==="pedidos"&&(
-          <div className="pedidos-section">
-            <h2>Pedidos</h2> 
+        {activeTab==="seguridad" &&(
+          <ProfileSecurity/>
+        )}
 
-          </div>
+        {activeTab === "pedidos" && (
+          <ProfilePedidos/>
         )}
       </section>
     </main>

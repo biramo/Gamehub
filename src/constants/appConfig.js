@@ -5,3 +5,5 @@ export const APP_CONFIG = {
 
 export const STORAGE_KEY = "carrito";
 
+export const PEDIDOS_DB="pedidos";
+

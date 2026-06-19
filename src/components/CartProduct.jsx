@@ -1,10 +1,10 @@
 import '../styles/components/CartProduct.css'
 
 // Le pasamos también las funciones para manejar la cantidad (opcional, pero recomendado)
-export default function CartProduct({ producto,setCantidadProducto}) {
+export default function CartProduct({ producto,setCantidadProducto, onClick}) {
     const MAX_UNIDADES = 10;
     return (
-        <li className="cart-product">
+        <li className="cart-product" onClick={onClick}>
             {/* Imagen simplificada sin <figure> para mejor control con CSS */}
             <img 
                 src={producto.background_image}

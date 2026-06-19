@@ -9,7 +9,7 @@
   width: 40px;
   height: 40px;
   border: 4px solid #e0e0e0;
-  border-top-color: rgb(84, 207, 111);
+  border-top-color: var(--bg-orange);
   border-radius: 50%;
   animation: girar 0.8s linear infinite;
 }

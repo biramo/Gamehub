@@ -8,7 +8,7 @@ const BASE_URL = 'https://api.rawg.io/api';
   return data.results: Devuelve directamente el arreglo con la lista de videojuegos.
 */
 // Añade precio simulado a un array de juegos
-function añadirPrecio(datos) {
+export function añadirPrecio(datos) {
   const generarPrecio = () => (Math.random() * 50 + 10).toFixed(2);
   
   // Si es un array (lista de juegos)
@@ -35,22 +35,23 @@ export async function getJuegosDestacados() {
 }
 
 // Obtener catálogo completo de juegos con filtros y paginación
-export async function getJuegos({ pagina = 1, busqueda = '', genero = '' } = {}) {
-  // Transforma los parámetros (filtros, página, API key) en formato de cadena de texto para la URL (?key=abc&page=1...)
+export async function getJuegos({ pagina = 1, busqueda = '', genero = '', plataforma = '', orden = '-rating' } = {}) {
   const params = new URLSearchParams({
     key: API_KEY,
     page: pagina,
     page_size: 20,
-    sfw:true,
-    ...(busqueda && { search: busqueda }), // Solo añade el parámetro si el usuario escribió algo en el buscador
-    ...(genero && { genres: genero }),     // Solo añade el filtro si se seleccionó un género
+    ordering: orden,
+    sfw: true,
+    ...(busqueda   && { search: busqueda }),
+    ...(genero     && { genres: genero }),
+    ...(plataforma && { platforms: plataforma }),
   });
-
-  
-  
   const res = await fetch(`${BASE_URL}/games?${params}`);
   const data = await res.json();
-  return data; // Devuelve el objeto completo (incluye total de páginas para la paginación)
+  return {
+    ...data,
+    results: añadirPrecio(data.results)
+  };
 }
 
 // Obtener el detalle de un juego específico por su ID

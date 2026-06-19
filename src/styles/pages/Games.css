@@ -1,0 +1,205 @@
+.games-page {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  width: 100%;;
+  position: relative;
+}
+
+.games-filtros {
+  width: 220px;
+  flex-shrink: 0;
+  background: #1a1a2e;
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  height: fit-content;
+  position: sticky;
+  top: 80px;
+}
+
+/* Botón toggle - oculto en desktop */
+.filtros-toggle {
+  display: none;
+  background: #6c47ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.games-filtros h3 {
+  color: white;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.games-filtros ul {
+  list-style: none;
+  padding: 0;
+}
+
+.games-filtros li {
+  padding: 8px 12px;
+  color: #9ca3af;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.games-filtros li:hover,
+.games-filtros li.active {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.games-resultados {
+  flex: 1;
+}
+
+.games-resultados h2 {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.games-total {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.games-paginacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  color: white;
+}
+
+.games-paginacion button {
+  background: var(--purple, #6c47ff);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.games-paginacion button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+/* ============================================
+   RESPONSIVE - MÓVIL
+   ============================================ */
+@media (max-width: 768px) {
+  .games-page {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0;
+  }
+
+  /* Mostrar botón de filtros en móvil */
+  .filtros-toggle {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  /* Aside oculto por defecto en móvil */
+  .games-filtros {
+    width: 100%;
+    position: static;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    background: transparent;
+    border-radius: 0;
+    transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+  }
+
+  /* Aside abierto */
+  .games-filtros.abierto {
+    max-height: 600px;
+    padding: 1.5rem 1rem;
+    opacity: 1;
+    background: #1a1a2e;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    overflow-y: auto;
+  }
+
+  /* Filtros en chips horizontales cuando están abiertos */
+  .games-filtros.abierto ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .games-filtros.abierto li {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .games-filtros.abierto li.active {
+    background: rgba(108, 71, 255, 0.3);
+  }
+
+  .games-filtros.abierto li:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .games-resultados h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .games-paginacion {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .games-paginacion button {
+    padding: 6px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Móvil muy pequeño */
+@media (max-width: 480px) {
+  .games-page {
+    padding: 0.8rem;
+  }
+
+  .games-grid {
+    box-sizing: border-box;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+  }
+
+  .games-resultados h2 {
+    font-size: 1rem;
+  }
+
+  .games-filtros.abierto li {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+}

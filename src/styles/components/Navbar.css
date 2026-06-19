@@ -5,6 +5,7 @@
     padding: 1em;
     border-bottom: none;
     position: relative;
+    width: 100%;
 }
 
 .navbar nav ul{
@@ -98,10 +99,10 @@
   top: 100%;
   right: 0;
   animation: dropdownSlide 0.2s ease-out;
-  border: solid 2px var(--border-color);
+  border: solid 3px var(--bg-orange);
   margin-top: 10px;
   margin-right: 10px;
-  background: var(--bg-orange);
+  background: black;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   min-width: 200px;
@@ -127,11 +128,11 @@
 }
 
 .navigate-profile{
-  color: black;
+  color: white;
 }
 
 .navigate-profile:hover{
-  background-color: var(--bg-gray);
+  background-color: var(--bd-red);
   color:white;
 }
 
@@ -173,6 +174,7 @@
 }
 
 @media(max-width:768px){
+  
     .navbar nav ul{
     display: grid;
     grid-template-columns: 1fr 1fr;

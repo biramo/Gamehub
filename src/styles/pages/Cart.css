@@ -75,8 +75,12 @@
     max-width: 500px;
     width: 100%;
     justify-self: end;
-    border-radius: 5px;
+    border-radius: 6px;
+    background-color: black;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgb(0,0,0,0.3);
 }
+
 
 .header-resumen-compra{
     display: flex;
@@ -87,13 +91,49 @@
     gap:10px;
     border-bottom: solid 3px var(--border-color);
     background-color: var(--bg-gray-light);
-
-    
 }
+
+.text-resumen-pedido{
+    font-size: 1.18rem;
+}
+
+.container-pago{  
+    display: flex;
+    flex-direction: column; 
+    box-sizing: border-box;
+    background-color: black;
+    padding: 1.5em;
+    gap: 15px;
+    margin-top: auto; 
+    align-items: center;
+
+}
+
+.btn-tramitar,
+.resumen-Garantias,
+.mensaje-compra{
+    color:white;
+
+}
+
+.btn-tramitar{
+    transition:background-color 0.3s ease;
+    border: solid 1px var(--border-color);
+    background-color: var(--bd-red);   
+
+}
+
+.btn-tramitar:hover{
+    background-color: var(--bg-orange);
+}
+
+/*[SECCION SUGERENCIAS]*/
 
 .section-sugerencias{
     grid-column: 1 / -1;
 }
+
+/*[SECCION COMENTARIOS Y VALORACIONES]*/
 
 .section-comentarios-valoraciones{
     grid-column: 1 / -1;

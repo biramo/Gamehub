@@ -10,6 +10,7 @@ import ProtectedRoute from './ProtectedRoute';
 import NotFound from '../pages/NotFound';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Games from '../pages/Games';
 import { ROUTES } from '../constants/routes';
 
 export default function AppRouter() {
@@ -28,8 +29,10 @@ export default function AppRouter() {
                 <Route path={ROUTES.HOME} element={<Home />} />
                 <Route path={ROUTES.LOGIN} element={<Login />} />
                 <Route path="/game/:id" element={<GameDetail />} />
+                <Route path={ROUTES.GAMES} element={<Games/>}/>
 
                 {/* Rutas protegidas (requieren login) */}
+                
                 <Route path={ROUTES.CART} element={
                     <ProtectedRoute>
                         <Cart />

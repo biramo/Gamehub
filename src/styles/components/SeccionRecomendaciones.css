@@ -1,0 +1,28 @@
+.seccion-recommend{
+    background-color: var(--bg-dark);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.header-recommend{
+    text-align: center;
+    padding: 0.5em;
+    color: var(--bg-orange);
+    font-size: 1.5rem;
+    border: 1px solid var(--bd-red);
+    margin: 0.4em;
+    border-radius: 8px;
+    background-color: var(--bg-gray);
+}
+
+.ul-games{
+    display: flex;
+    gap:10xp;
+    overflow-x: auto ;
+    flex-wrap: nowrap;
+}
+
+.card-game{
+    width: 500px;
+}

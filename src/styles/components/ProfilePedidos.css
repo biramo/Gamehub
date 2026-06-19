@@ -1,0 +1,57 @@
+.pedidos-section{
+    padding: 1em;
+}
+
+.pedidos-section h2{
+
+    font-size: 1.5rem;
+    color: var(--bg-orange);
+    padding: 0.3em;
+    text-align: center;
+    border-bottom: 1px solid var(--bd-red)
+}
+
+.lista-pedidos-main{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    padding: 1rem;
+    
+}
+
+.tarjeta-pedido{
+    border: solid 1px var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgb(0,0,0,0.4);
+    background-color: var(--bg-gray);
+    color:white;
+
+}
+
+.header-pedido{
+    padding: 0.4em 0.8em;
+    text-align: center;
+    border-bottom: 3px solid var(--border-color);
+    background-color: var(--bd-red);
+}
+
+.content-pedido{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 1em;
+}
+
+.content-pedido h4{
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-style:italic;
+}
+
+.items-pedido{
+    color:var(--bg-orange)
+}
+
+.total-pedido-profile{
+    color:var(--bg-light-orange)
+}

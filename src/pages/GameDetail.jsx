@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/pages/GameDetail.css'
+import SeccionRecomendaciones from '../components/SeccionRecomendaciones';
 
 export default function GameDetail() {
     const navigate=useNavigate();
@@ -19,7 +20,7 @@ export default function GameDetail() {
     const [juego, setJuego]=useState();
     const [loading, setLoading] = useState(true);  // ← Estado para carga
     const [error, setError] = useState(null);  // ← Estado para errores
-
+    
      // Avanza al siguiente juego
     const siguiente = () => {
       if (screenshots.length > 0) {
@@ -107,7 +108,7 @@ export default function GameDetail() {
               </div>
               <div className="rating">
                 <span>⭐ {juego.rating?.toFixed(1) || 'N/A'}</span>
-                {juego.metacritic &&(<span>Puntuacion {juego.metacritic}/100</span>)}
+                {juego.metacritic &&(<span>Rating: {juego.metacritic}/100</span>)}
               </div>
               
               <div className="game-meta">
@@ -148,6 +149,7 @@ export default function GameDetail() {
               </div>
             </section>
       </article>
+      <SeccionRecomendaciones/>
    </main>
    );
 }

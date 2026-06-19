@@ -2,6 +2,7 @@ import { useState,useEffect,useRef } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../hooks/useCart';
+import {ROUTES} from '../constants/routes'
 import '../styles/components/Navbar.css'
 
 export default function Navbar() {
@@ -19,7 +20,16 @@ export default function Navbar() {
   const handleLogout = () => {
     logout();
     setOpenProfile(false);
-    navigate('/login');
+    navigate(ROUTES.LOGIN);
+  };
+
+  const handleBuscar = (e) => {
+    e.preventDefault();
+    if (!searchTerm.trim()) {
+      navigate(ROUTES.GAMES);
+      return;
+    };
+    navigate(`/games?search=${searchTerm}`);
   };
 
   // Función para navegar y cerrar el dropdown
@@ -64,6 +74,10 @@ export default function Navbar() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
+            <button 
+            className='btn-buscador'
+            onClick={handleBuscar}
+            >🔎</button>
           </li>
           {user&&( 
           <li className="navbar-cart" onClick={()=>navigate('/cart')}>🛒 <span>{totalUnidades}</span></li>

@@ -14,11 +14,13 @@ html,body{
 button{
     padding: 0.5em 0.8em;
     border-radius: 8px;
+    cursor: pointer;
 
 }
 
 body{
     font-family: 'Share Tech Mono', monospace;
+    overflow-x: hidden;  
 }
 
 h1, h2, h3 {
