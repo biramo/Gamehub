@@ -27,30 +27,6 @@
   cursor: pointer;
 }
 
-.search-container {
-    margin-right: auto;
-    flex: 1; 
-    display: flex;
-    justify-content: center;
-    max-width: 400px;
-}
-
-.search-container input {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  font-size: 1rem;
-  min-width: 2rem;
-  background-color: var(--bg-orange);
-  color:black;
-}
-
-.search-container input:hover,
-.search-container input:focus {
-  outline: none;
-  
-}
-
 /* Carrito y perfil - se quedan a la derecha */
 .navbar-cart, .navbar-profile {
   cursor: pointer;
@@ -107,7 +83,7 @@
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   min-width: 200px;
   padding: 0.5rem 0;
-  z-index: 1;
+  z-index: 3;
 }
 
 .dropdown-menu ul{
@@ -159,6 +135,33 @@
 .dropdown-logout:hover{
   background-color: var(--bd-red);
   color: white
+}
+
+@keyframes searchInputSlide {
+  0% {
+    width: 10%;
+    /* TRUCO: Cortamos el texto del placeholder usando una técnica de espaciado transparente */
+    text-indent: 0;
+    letter-spacing: -10px; /* Al juntar las letras al extremo, solo se visualiza el primer carácter (la lupa) */
+    opacity: 1;
+  }
+
+  50% {
+    /* Mientras se estira, mantenemos el texto del placeholder oculto para que no se deforme a medias */
+    letter-spacing: -10px;
+  }
+
+  90% {
+    width: 90%;
+    box-shadow: 0 0 10px var(--bd-red);
+  }
+
+  100% {
+    width: 100%;
+    /* Restauramos los valores originales: el texto se expande y se vuelve legible de golpe al final */
+    letter-spacing: normal;
+    opacity: 1;
+  }
 }
 
 

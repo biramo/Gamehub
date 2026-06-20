@@ -6,13 +6,14 @@
 }
 
 .slider-bg {
-    transform: scale(1.05);
+  transform: scale(1.05);
   position: absolute;
   inset: 0; /*top,right,bottom,left, ocupa todo el contenedor*/
   background-size: cover;
   background-position: top center;
   transition: background-image 0.5s ease;
   filter: brightness(0.6);
+  
   
 }
 

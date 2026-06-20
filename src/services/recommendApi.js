@@ -1,5 +1,5 @@
 import { añadirPrecio } from "./rawgApi";
-const API_URL = 'http://localhost:8001';
+const API_URL = 'http://192.168.0.54:8000';
 
 export async function getRecomendaciones(gameId) {
   const res = await fetch(`${API_URL}/recommend/${gameId}`);

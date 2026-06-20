@@ -9,19 +9,19 @@ export default function Home() {
       
       <SeccionJuegos
         titulo="🔥 Acción"
-        fetchFn={() => getJuegosPorGenero('action')}
+        fetchFn={() => getJuegosPorGenero('action',15)}
       />
       <SeccionJuegos
         titulo="⚔️ RPG"
-        fetchFn={() => getJuegosPorGenero('role-playing-games-rpg')}
+        fetchFn={() => getJuegosPorGenero('role-playing-games-rpg',15)}
       />
       <SeccionJuegos
         titulo="🎮 PlayStation"
-        fetchFn={() => getJuegosPorPlataforma(187)}
+        fetchFn={() => getJuegosPorPlataforma(187,15)}
       />
       <SeccionJuegos
         titulo="💻 PC"
-        fetchFn={() => getJuegosPorPlataforma(4)}
+        fetchFn={() => getJuegosPorPlataforma(4,15)}
       />
     </main>
   );

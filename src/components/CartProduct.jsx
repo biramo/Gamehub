@@ -15,7 +15,7 @@ export default function CartProduct({ producto,setCantidadProducto, onClick}) {
 
             <div className="cart-product-content">
                 <div className="cart-product-info">
-                    <h3>{producto.name}</h3>
+                    <h3 onClick={onClick} >{producto.name}</h3>
                     <span className="cart-product-platform">
                         {producto.platforms?.[0]?.platform?.name || 'Plataforma no especificada'}
                     </span>

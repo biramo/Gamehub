@@ -2,12 +2,12 @@ import { useState,useEffect,useRef } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../hooks/useCart';
+import SearchBar from './SearchBar';
 import {ROUTES} from '../constants/routes'
 import '../styles/components/Navbar.css'
 
 export default function Navbar() {
   const {totalUnidades}=useCart();
-  const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate(); //importamos la funcion useNavigate
   const { user, logout } = useAuth();
   const [openProfile, setOpenProfile] = useState(false);//Para el dropdown
@@ -22,16 +22,6 @@ export default function Navbar() {
     setOpenProfile(false);
     navigate(ROUTES.LOGIN);
   };
-
-  const handleBuscar = (e) => {
-    e.preventDefault();
-    if (!searchTerm.trim()) {
-      navigate(ROUTES.GAMES);
-      return;
-    };
-    navigate(`/games?search=${searchTerm}`);
-  };
-
   // Función para navegar y cerrar el dropdown
   const handleNavigation = (path) => {
     navigate(path);
@@ -59,7 +49,8 @@ export default function Navbar() {
     document.removeEventListener('keydown', handleEsc);
   };
 }, []);
-  
+
+
   return (
     <header className="navbar">
       <nav>
@@ -67,18 +58,7 @@ export default function Navbar() {
           <li className="logo" onClick={()=>navigate('/')}>
             🛍️ <span>MiTienda</span>
           </li>
-          <li className="search-container">
-            <input
-              type="text"
-              placeholder="Buscar productos..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <button 
-            className='btn-buscador'
-            onClick={handleBuscar}
-            >🔎</button>
-          </li>
+          <SearchBar/>
           {user&&( 
           <li className="navbar-cart" onClick={()=>navigate('/cart')}>🛒 <span>{totalUnidades}</span></li>
           )}

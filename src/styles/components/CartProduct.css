@@ -9,6 +9,9 @@
   align-items: center;
   background-color: var(--bg-gray);
 }
+.article-product{
+  display: flex;
+}
 
 .cart-product-image {
   width: 120px;

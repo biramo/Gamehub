@@ -1,0 +1,43 @@
+.search-container {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 400px;
+  margin-right: auto;
+}
+
+/* El form ocupa todo el espacio del li */
+.search-form {
+  display: flex;
+  width: 45px;            /* cerrado: solo cabe la lupa */
+  height: 40px;
+  transition: width 0.3s ease;
+}
+
+/* Cuando el li tiene la clase .open, el form se expande */
+.search-container.open .search-form {
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem 1rem 0.5rem 2.4rem;
+  border-radius: 25px;
+  border: none;
+  font-size: 1rem;
+  background-color: var(--bg-orange);
+  color: black;
+}
+
+/* El placeholder solo se ve cuando está abierto */
+.search-input::placeholder {
+  color: transparent;
+  transition: color 0.2s ease;
+}
+
+.search-container.open .search-input::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+  transition-delay: 0.15s;
+}
